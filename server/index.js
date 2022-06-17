@@ -14,7 +14,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended:true,limit:'20mb'}));
 app.use(bodyParser.json({limit:'20mb'}));
 
-app.use('/api/users', userRoutes);
+app.use('/api/users/', userRoutes);
 
 mongoose.connect(process.env.DB_URI)
 .then(()=>console.log('Database Connected'))

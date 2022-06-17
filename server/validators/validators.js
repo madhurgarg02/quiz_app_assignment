@@ -3,6 +3,10 @@ const validator = require('validator');
 
 module.exports.loginValidator = (data) =>{
     const errors = {};
+
+    data.email = !(isEmpty(data.email)) ? data.email : '';
+    data.password = !(isEmpty(data.password))? data.password:'';
+
     let emailError = validator.isEmpty(data.email)?'Email is required' : (!validator.isEmail(data.email)?'Please provide a valid email':'');
     let passwordError = validator.isEmpty(data.password)?'Password is required':'';
 
@@ -17,6 +21,12 @@ module.exports.loginValidator = (data) =>{
 
 module.exports.registerValidator = (data) =>{
     const errors = {};
+
+    data.email = !(isEmpty(data.email)) ? data.email : '';
+    data.password = !(isEmpty(data.password))? data.password:'';
+    data.firstName = !(isEmpty(data.firstName))?data.firstName:'';
+    data.lastName = !(isEmpty(data.lastName))?data.lastName:'';
+
     let emailError = validator.isEmpty(data.email)?'Email is required' : (!validator.isEmail(data.email)?'Please provide a valid email':'');
     let passwordError = validator.isEmpty(data.password)?'Password is required':'';
     let firstNameError = validator.isEmpty(data.firstName)?'Name is required':'';
