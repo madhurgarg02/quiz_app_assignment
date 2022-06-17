@@ -34,7 +34,7 @@ module.exports.registerValidator = (data) =>{
 
     if(emailError) errors.email = emailError;
     if(passwordError) errors.password = passwordError;
-    if(firstNameError || lastNameError) errors.firstName = 'Full Nae is required';
+    if(firstNameError || lastNameError) errors.firstName = 'Full Name is required';
 
     return{
         errors,
