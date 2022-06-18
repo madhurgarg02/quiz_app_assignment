@@ -20,6 +20,11 @@ mongoose.connect(process.env.DB_URI)
 .then(()=>console.log('Database Connected'))
 .catch(err => console.log('Error connecting to DB',err));
 
+//deployment
+if(process.env.NODE_ENV == "production"){
+    app.use(express.static("client/build"));
+}
+
 let server = app.listen(PORT,()=>{
     console.log(`Node server running on port: ${PORT}`);
 });
